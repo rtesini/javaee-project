@@ -18,6 +18,38 @@
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
    </properties>
 
+   <pluginRepositories>
+		<pluginRepository>
+			<id>releases</id>
+			<url>https://mvn.dextra.com.br/repository/releases/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>mvn</id>
+			<url>http://mvnrepository.com/</url>
+		</pluginRepository>
+		<pluginRepository>
+			  <id>jboss-public-repository-group</id>
+			  <name>JBoss Public Maven Repository Group</name>
+			  <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+			  <layout>default</layout>
+			  <releases>
+			    <enabled>true</enabled>
+			    <updatePolicy>never</updatePolicy>
+			  </releases>
+			  <snapshots>
+			    <enabled>true</enabled>
+			    <updatePolicy>never</updatePolicy>
+			  </snapshots>
+        	</pluginRepository>
+    </pluginRepositories>
+
+
    <dependencyManagement>
       <dependencies>
 
@@ -106,16 +138,19 @@
                configure the jboss-as maven plugin to skip deployment for all modules. We 
                then enable it specifically in the ear module. -->
             <plugin>
-               <groupId>org.jboss.as.plugins</groupId>
-               <artifactId>jboss-as-maven-plugin</artifactId>
-               <version>7.0.2.Final</version>
-               <inherited>true</inherited>
-               <configuration>
-                  <skip>true</skip>
-               </configuration>
+              <groupId>org.jboss.as.plugins</groupId>
+              <artifactId>jboss-as-maven-plugin</artifactId>
+              <version>7.4.Final</version>
             </plugin>
          </plugins>
       </pluginManagement>
+      <plugins>
+            <plugin>
+              <groupId>org.jboss.as.plugins</groupId>
+              <artifactId>jboss-as-maven-plugin</artifactId>
+              <version>7.4.Final</version>
+            </plugin>
+         </plugins>
    </build>
 
 </project>
